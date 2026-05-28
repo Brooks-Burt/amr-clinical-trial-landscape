@@ -27,6 +27,7 @@ Analyzing 313 AMR-speciifc trials registered between 2004 and 2026, the data rev
 
 <img width="1155" height="572" alt="image" src="https://github.com/user-attachments/assets/5fe76db2-4c09-4d11-a81a-80b762a4f993" />
 
+
 Critically, the analysis also surfaces a policy-relevant gap: **indsutry sponsorship declined slightly** from 38% to 35.6% post-WHO GAP, while academic and government institutions absorbed the growing trial burden. This raises important questions about the sustainability of AMR research and whether or not there will be a more delayed response by industry to this problem, or none at all. 
 
 ---
@@ -99,6 +100,7 @@ As AMR has become a greater priority, so too are the specific pathogens being st
 
 <img width="1776" height="878" alt="image" src="https://github.com/user-attachments/assets/219a0383-2132-43c4-9eb6-a27b8f50b144" />
 
+
  | Intervention Type | Pre-WHO GAP | Post-WHO GAP |
 |---|---|---|
 | Drug Treatment | 64.9% | 60.1% |
@@ -138,11 +140,13 @@ The decline in MRSA trials (26 → 10) is not cause for concern, it reflects a m
 
 <img width="1836" height="828" alt="image" src="https://github.com/user-attachments/assets/3d471365-68ce-4cb3-acfe-87937cb72cf8" />
 
+
 Larger trials require more funding, the 72% increase in median enrollment post-WHO GAP suggests greater resource commitment per trial, not just more trials. This is a meaningful indicator of deepening investment beyond surface-level registration activity.
  
 **Finding: Late-stage trials increased from 50% to 59.5% of the pipeline**
 
  <img width="1476" height="877" alt="image" src="https://github.com/user-attachments/assets/92369fe6-9435-4241-9670-4a0bfda94b5c" />
+ 
 
  | Phase | Pre-WHO GAP | Post-WHO GAP |
 |---|---|---|
@@ -155,6 +159,18 @@ Larger trials require more funding, the 72% increase in median enrollment post-W
 | **Late stage (Phase 2/3+)** | **50.0%** | **59.5%** |
 
 The post-WHO GAP cohort shows a higher proportion of late-stage trials (59.5%) than the pre-WHO GAP cohort (50.0%). This finding becomes significantly more compelling when accounting for time. Pre-WHO GAP trials have had a decade or more to mature through the pipeline, meaning their 50% late-stage rate reflects years of natural progression. Post-WHO GAP trials have had considerably less time to advance yet already exceed that benchmark at 59.5%. This suggests that post-2015 AMR trials entered the pipeline at a more advanced stage of development, reflecting greater upfront investment and scientific readiness, a sign that the WHO GAP may have produced not just more research activity but more mature, better-resourced research programs from the jump.
+
+**Finding: Industry sponsorship declined slightly (38% → 35.6%) while government entered the space**
+ 
+| Sponsor Type | Pre-WHO GAP | Post-WHO GAP |
+|---|---|---|
+| Academic/Research | 62.0% | 62.8% |
+| Industry | 38.0% | 35.6% |
+| Government | — | 1.7% |
+ 
+This is the most policy-relevant and concerning finding in the analysis. Despite the WHO GAP's explicit goal of stimulating sustainable investment, industry's share of AMR trial sponsorship *declined* post-2015. Academic and research institutions continue to shoulder the majority of the trial burden (62%+), while government sponsorship — though newly present post-2015 — remains marginal at 1.7%.
+ 
+**Recommendation:** The WHO GAP succeeded in raising awareness and stimulating academic research activity, but has not yet achieved its goal of sustainable private sector investment in AMR. There needs to be some market-entry reward for companies that are able to create solutions to this rising AMR problems. In the current economic landscape it is evident it is just not reasonable to pursue this type of research. 
 
 ### Completion Rates — A Note on Active Trials
  
