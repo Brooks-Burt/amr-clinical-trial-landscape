@@ -10,6 +10,7 @@
   <a href="#results--business-recommendations">Findings</a> · 
   <a href="#summary-of-key-findings">Summary Table</a>
 </p>
+
 | 🧪 313 AMR Trials | 📈 236.6% Volume Growth | 💊 17x CRE Increase | 🏛️ Industry Sponsorship Declining |
 |---|---|---|---|
 | Identified from 1.17M registered studies | Post vs Pre WHO GAP 2015 | Most dramatic resistance shift | 38% → 35.6% post-WHO GAP |
