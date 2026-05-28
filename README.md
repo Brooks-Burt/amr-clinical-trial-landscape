@@ -18,6 +18,7 @@
 **Tools:** PostgreSQL · Python · pandas · matplotlib · seaborn · Jupyter  
 **Data:** [AACT — ClinicalTrials.gov](https://aact.ctti-clinicaltrials.org/) · 1.17M trials · Cohort: 313 AMR-specific trials  
 **Author:** [Brooks Burt](https://www.linkedin.com/in/brooks-burt-97170b19b/) · Computational Associate, Infectious Disease · Broad Institute 
+
 ---
 
 ## Executive Summary
