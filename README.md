@@ -76,6 +76,7 @@ Of 1,170,000+ registered trials in AACT, AMR-specific trials were identified usi
  
 **Block 1 — Resistance terminology:**
 - `-resistant`, `drug resistant`, `antimicrobial resistance`, `antibiotic resistance`
+
 **Block 2 — Infectious pathogen context:**
 - Specific organisms: *Staphylococcus*, *Tuberculosis*, *Klebsiella*, *Pseudomonas*, *Acinetobacter*, *Enterococcus*, *Enterobacteriaceae*, *Escherichia*, *Candida*, *Streptococcus*, *Campylobacter*, *Helicobacter*, *Gonorrhoeae*, *Salmonella*
 - Broad context terms: `bacterial`, `antimicrobial`, `antibiotic`, `antifungal`, `infection`, `fungal`, `malaria`
