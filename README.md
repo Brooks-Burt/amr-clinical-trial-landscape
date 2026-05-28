@@ -27,13 +27,13 @@ Analyzing 313 AMR-speciifc trials registered between 2004 and 2026, the data rev
 
 <img width="1155" height="572" alt="image" src="https://github.com/user-attachments/assets/5fe76db2-4c09-4d11-a81a-80b762a4f993" />
 
-Critically, the analysis also surfaces a policy-relevant gap: **indsutry sponsorship declined slightly** from 38% to 35.6% post-WHO GAP, while academic and government institutions absorbed the growing trial burden. This raises important questions about the sustainability of AMR research and whether or not there will be a more delayed response by industry to this problem. 
+Critically, the analysis also surfaces a policy-relevant gap: **indsutry sponsorship declined slightly** from 38% to 35.6% post-WHO GAP, while academic and government institutions absorbed the growing trial burden. This raises important questions about the sustainability of AMR research and whether or not there will be a more delayed response by industry to this problem, or none at all. 
 
 ---
 
 ## 3. Business Problem
  
-Antimicrobial resistance represents one of the most complex challenges in modern medicine. Unlike most therapeutic areas, AMR drug development is economically unattractive. If a new "wonderdrug" antibiotic is creating, it is immediately strictly rationed in fears of pathogens developing immunity. This inherently means much lower sales as well. 
+Antimicrobial resistance represents one of the most complex challenges in modern medicine. Unlike most therapeutic areas, AMR drug development is economically unattractive. If a new "wonderdrug" antibiotic is created, it is immediately rationed in fears of pathogens developing immunity. This inherently means much lower sales as well. 
 
 The WHO GAP was designed in part to address this market failure by coordinating international policy, funding, and research prioritization.
  
@@ -47,4 +47,108 @@ This is examined across five dimensions:
 - **Pillar 5 — Sustainable Investment:** Did enrollment scale, late-stage trial rates, and industry engagement grow?
 ---
 
+## 4. Methodology
  
+### Data Source
+The AACT database provides a fully relational PostgreSQL snapshot of all ClinicalTrials.gov registrations, updated daily. The full static dump (~8GB) was restored locally and queried directly via PostgreSQL. All analysis was conducted in Python using pandas, matplotlib, and seaborn within Jupyter notebooks.
+
+### Cohort Definition
+Of 1,170,000+ registered trials in AACT, AMR-specific trials were identified using a dual-filter methodology requiring **both** of the following to be present in a trial's condition coding:
+ 
+**Block 1 — Resistance terminology:**
+- `-resistant`, `drug resistant`, `antimicrobial resistance`, `antibiotic resistance`
+**Block 2 — Infectious pathogen context:**
+- Specific organisms: *Staphylococcus*, *Tuberculosis*, *Klebsiella*, *Pseudomonas*, *Acinetobacter*, *Enterococcus*, *Enterobacteriaceae*, *Escherichia*, *Candida*, *Streptococcus*, *Campylobacter*, *Helicobacter*, *Gonorrhoeae*, *Salmonella*
+- Broad context terms: `bacterial`, `antimicrobial`, `antibiotic`, `antifungal`, `infection`, `fungal`, `malaria`
+This dual-filter approach was chosen to exclude non-AMR resistance conditions (oncological resistance, treatment-resistant depression, insulin resistance) that would otherwise inflate the cohort. A plain `%resistant%` filter returned 2,185 trials, the majority of which were unrelated to antimicrobial resistance.
+ 
+Trials satisfying both blocks via an `EXISTS` subquery structure — requiring resistance and pathogen terms to be present at the trial level rather than within the same condition string — yielded a **final cohort of 313 trials**.
+
+ ### Inflection Point
+The WHO Global Action Plan on Antimicrobial Resistance (May 2015) was selected as the analytical inflection point, dividing the cohort into:
+- **Pre-WHO GAP:** trials with start date before January 1, 2015 (n=71)
+- **Post-WHO GAP:** trials with start date on or after January 1, 2015 (n=239)
+- **Unknown:** trials with missing start dates excluded from period comparisons (n=3)
+
+
+### Limitations
+- Cohort size (313 trials) limits statistical power for subgroup analyses
+- `drop_duplicates` on `nct_id` retains the first matching condition per trial; trials with multiple resistance mechanisms are therefore conservatively classified
+- ClinicalTrials.gov registration is voluntary prior to 2017, meaning pre-2015 trial counts may be underrepresented
+- The dataset includes prospectively registered trials with start dates through 2026
+
+
+## 6. Results & Business Recommendations
+ 
+### Pillar 1 & 2 — Awareness & Knowledge
+ 
+**Finding: Trial volume increased 236.6% post-WHO GAP**
+The most direct signal of the WHO GAP's impact is the sheer increase in registered AMR trial activity. This growth is also very unlikely to be driven by registration behavior alone as mentioned earlier, the 2017 mandate would, if anything, mean that there was likely MORE trials PRE 2015 than reported. 
+
+**Finding: Pathogen diversity expanded from 6 to 9 distinct pathogen groups**
+
+<img width="2075" height="1026" alt="image" src="https://github.com/user-attachments/assets/5d3728db-a785-4d6f-8bb4-f7567e52accf" />
+
+As AMR has become a greater priority, so too are the specific pathogens being studied. 
+
+### Pillar 3 — Reduce Infection
+
+<img width="1776" height="878" alt="image" src="https://github.com/user-attachments/assets/219a0383-2132-43c4-9eb6-a27b8f50b144" />
+
+ | Intervention Type | Pre-WHO GAP | Post-WHO GAP |
+|---|---|---|
+| Drug Treatment | 64.9% | 60.1% |
+| Prevention (Vaccine/Biological) | 0.9% | 5.1% |
+| Infection Control/Behavioral | 5.3% | 3.7% |
+| Combination Therapy | 1.8% | 1.6% |
+| Diagnostic/Device | 1.8% | 2.5% |
+| Other | 25.4% | 27.0% |
+
+These results show an interesting result when looking through the lens of the 2015 WHO GAP. Their third pillar called for a reduction of incidence of infection, which would be "Infection Control/Behavioral", yet our results show this field decreased while fields like "Prevention (Vaccine/Biological)" increased. This shows that the majority of response continued to be biological response, rather than behavioral.
+
+**Recommendation:** Policy frameworks should incentivize infection control behavioral trials more explicitly, as these represent low-cost, high-impact interventions that remain underfunded relative to drug development.
+
+ 
+### Pillar 4 — Optimize Use
+ 
+**Finding: Trial focus shifted from MRSA toward emerging critical threats (CRE, MDR-TB)**
+ 
+| Resistance Type | Pre-WHO GAP | Post-WHO GAP |
+|---|---|---|
+| MRSA | 26 | 10 |
+| MDR-TB | 4 | 12 |
+| CRE | 1 | 17 |
+| XDR-TB | 2 | 4 |
+| VRE | 1 | 4 |
+ 
+The most striking finding in this analysis is the **17-fold increase in CRE trials** (1 → 17) post-WHO GAP. Carbapenem-resistant Enterobacteriaceae represent one of the most urgent AMR threats, carbapenems are often the last-line treatment for gram-negative infections, and resistance leaves clinicians with few remaining options. The near-absence of CRE trials pre-2015 followed by a dramatic increase post-WHO GAP is the clearest evidence of policy-driven research reorientation in this dataset.
+ 
+The decline in MRSA trials (26 → 10) is not cause for concern, it reflects a maturing pipeline where established treatments (vancomycin, linezolid, daptomycin) have reduced the urgency of new MRSA-specific development.
+ 
+**Recommendation:** The CRE pipeline, while growing, remains small in absolute terms. Targeted funding mechanisms (similar to CARB-X or BARDA's AMR program) should continue to prioritize carbapenem-resistant gram-negative organisms where treatment options are most critically limited.
+
+
+### Pillar 5 — Sustainable Investment
+ 
+**Finding: Median enrollment grew 72% (100 → 172 participants)**
+
+<img width="1836" height="828" alt="image" src="https://github.com/user-attachments/assets/3d471365-68ce-4cb3-acfe-87937cb72cf8" />
+
+Larger trials require more funding, the 72% increase in median enrollment post-WHO GAP suggests greater resource commitment per trial, not just more trials. This is a meaningful indicator of deepening investment beyond surface-level registration activity.
+ 
+**Finding: Late-stage trials increased from 50% to 59.5% of the pipeline**
+
+ <img width="1476" height="877" alt="image" src="https://github.com/user-attachments/assets/92369fe6-9435-4241-9670-4a0bfda94b5c" />
+
+ | Phase | Pre-WHO GAP | Post-WHO GAP |
+|---|---|---|
+| Phase 1 | 13.3% | 14.6% |
+| Phase 1/2 | 3.3% | 4.5% |
+| Phase 2 | 33.3% | 21.3% |
+| Phase 2/3 | 3.3% | 12.4% |
+| Phase 3 | 20.0% | 21.3% |
+| Phase 4 | 26.7% | 25.8% |
+| **Late stage (Phase 2/3+)** | **50.0%** | **59.5%** |
+
+The post-WHO GAP cohort shows a higher proportion of late-stage trials (59.5%) than the pre-WHO GAP cohort (50.0%), and this finding becomes significantly more compelling when accounting for time. Pre-WHO GAP trials have had a decade or more to mature through the pipeline, meaning their 50% late-stage rate reflects years of natural progression. Post-WHO GAP trials have had considerably less time to advance yet already exceed that benchmark at 59.5%. This suggests that post-2015 AMR trials entered the pipeline at a more advanced stage of development, reflecting greater upfront investment and scientific readiness, a sign that the WHO GAP may have produced not just more research activity but more mature, better-resourced research programs from the jump.
+
