@@ -1,18 +1,31 @@
-# AMR Clinical Trial Landscape
-### Evaluating the Research Response to the WHO Global Action Plan on Antimicrobial Resistance
----
-## 1. Question 
-**AMR Clinical Trial Landscape: Did the Research Pipeline Respond to the Global AMR Crisis?**
-Analyzing 312 AMR-specific clinical trials from ClinicalTrials.gov to evaluate whether trial volume, phase distribution, enrollment, and sponsor landscape shifted following the 2015 WHO Global Action Plan on Antimicrobial Resistance. Built with PostgreSQL and Python.
-
+# Did the Clinical Trial Pipeline Respond to the Global AMR Crisis?
+ 
+> Evaluating whether research investment in antimicrobial resistance shifted following the 2015 WHO Global Action Plan — analyzed across 313 AMR-specific clinical trials from ClinicalTrials.gov.
+ 
+<p>
+  <a href="#executive-summary">Executive Summary</a> ·
+  <a href="#business-problem">Business Problem</a> · 
+  <a href="#methodology">Methodology</a> ·
+  <a href="#skills">Skills</a> ·
+  <a href="#results--business-recommendations">Findings</a> · 
+  <a href="#summary-of-key-findings">Summary Table</a>
+</p>
+| 🧪 313 AMR Trials | 📈 236.6% Volume Growth | 💊 17x CRE Increase | 🏛️ Industry Sponsorship Declining |
+|---|---|---|---|
+| Identified from 1.17M registered studies | Post vs Pre WHO GAP 2015 | Most dramatic resistance shift | 38% → 35.6% post-WHO GAP |
+ 
 **Tools:** PostgreSQL · Python · pandas · matplotlib · seaborn · Jupyter  
-**Data Source:** [AACT (Aggregate Analysis of ClinicalTrials.gov)](https://aact.ctti-clinicaltrials.org/) — maintained by the Clinical Trials Transformation Initiative (CTTI)
+**Data:** [AACT — ClinicalTrials.gov](https://aact.ctti-clinicaltrials.org/) · 1.17M trials · Cohort: 313 AMR-specific trials  
+**Author:** Brooks Burt · Computational Analysis, Infectious Disease · Broad Institute
+ 
+---
 
-
-## 2. Summary
+## Executive Summary
 
 Antimicrobial resistane is a growing concern in the world of biomedical research and medicine. Old antibiotics which were at one time deemed wonder drugs are no longer work as effectively as these pathogens are adapting and evolving to acquire resistance. 
+
 In 2015, the World Health Organization published its Global Action Plan (WHO GAP) on Antimicrobial Resistance, establishing a coordinated international framework across five key objectives.
+
 ### WHO 5 objectives:
 - to improve awareness and understanding of antimicrobial resistance;
 - to strengthen knowledge through surveillance and research;
@@ -32,7 +45,7 @@ Critically, the analysis also surfaces a policy-relevant gap: **indsutry sponsor
 
 ---
 
-## 3. Business Problem
+## Business Problem
  
 Antimicrobial resistance represents one of the most complex challenges in modern medicine. The problem, AMR development is coincidentally one of the worst businesses in medicine. 
 Effective antibiotics are used sparingly by design, prescribed for days rather than years, and often generically available, creating commercial returns that don't justify the billions spent on R&D.
@@ -52,7 +65,7 @@ This is examined across five dimensions:
 
 ---
 
-## 4. Methodology
+## Methodology
  
 ### Data Source
 The AACT database provides a fully relational PostgreSQL snapshot of all ClinicalTrials.gov registrations, updated daily. The full static dump (~8GB) was restored locally and queried directly via PostgreSQL. All analysis was conducted in Python using pandas, matplotlib, and seaborn within Jupyter notebooks.
@@ -82,8 +95,22 @@ The WHO Global Action Plan on Antimicrobial Resistance (May 2015) was selected a
 - ClinicalTrials.gov registration is voluntary prior to 2017, meaning pre-2015 trial counts may be underrepresented
 - The dataset includes prospectively registered trials with start dates through 2026
 
+---
+ 
+## Skills
+ 
+| Area | Tools & Techniques |
+|---|---|
+| Database | PostgreSQL, AACT schema, complex JOIN and EXISTS subquery logic |
+| Data Wrangling | Python, pandas, datetime parsing, outlier capping, deduplication |
+| Analysis | Pre/post cohort comparison, sponsor classification, pathogen taxonomy |
+| Visualization | matplotlib, seaborn, dual-axis charts, time series, grouped bar charts |
+| Domain Knowledge | AMR biology, WHO GAP policy framework, clinical trial phases |
+| Workflow | Jupyter notebooks, modular pipeline (EDA → Cleaning → Analysis) |
+ 
+---
 
-## 6. Results & Business Recommendations
+## Results & Business Recommendations
  
 ### Pillar 1 & 2 — Awareness & Knowledge
  
