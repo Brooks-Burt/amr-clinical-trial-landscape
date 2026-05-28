@@ -1,0 +1,19 @@
+# Database credentials
+.env
+
+# AACT raw data dump
+*.dmp
+data/raw/
+
+# Jupyter
+.ipynb_checkpoints/
+*.ipynb_checkpoints
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+.DS_Store
+
+# Large processed files (optional - only if files are very large)
+# data/processed/*.csv
