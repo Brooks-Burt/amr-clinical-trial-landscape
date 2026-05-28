@@ -33,7 +33,8 @@ Critically, the analysis also surfaces a policy-relevant gap: **indsutry sponsor
 
 ## 3. Business Problem
  
-Antimicrobial resistance represents one of the most complex challenges in modern medicine. Unlike most therapeutic areas, AMR drug development is economically unattractive. If a new "wonderdrug" antibiotic is created, it is immediately rationed in fears of pathogens developing immunity. This inherently means much lower sales as well. 
+Antimicrobial resistance represents one of the most complex challenges in modern medicine. The problem, AMR development is coincidentally one of the worst businesses in medicine. 
+Effective antibiotics are used sparingly by design, prescribed for days rather than years, and often generically available, creating commercial returns that don't justify the billions spent on R&D.
 
 The WHO GAP was designed in part to address this market failure by coordinating international policy, funding, and research prioritization.
  
@@ -45,6 +46,9 @@ This is examined across five dimensions:
 - **Pillar 3 — Reduce Infection:** Did trial focus shift toward prevention and infection control?
 - **Pillar 4 — Optimize Use:** Did trials targeting specific resistance mechanisms grow? Did combination therapy increase?
 - **Pillar 5 — Sustainable Investment:** Did enrollment scale, late-stage trial rates, and industry engagement grow?
+
+**Policy does not always reflect research reality. During this investigation, we will look into each pillar to see whether the research is responding.**
+
 ---
 
 ## 4. Methodology
@@ -150,5 +154,33 @@ Larger trials require more funding, the 72% increase in median enrollment post-W
 | Phase 4 | 26.7% | 25.8% |
 | **Late stage (Phase 2/3+)** | **50.0%** | **59.5%** |
 
-The post-WHO GAP cohort shows a higher proportion of late-stage trials (59.5%) than the pre-WHO GAP cohort (50.0%), and this finding becomes significantly more compelling when accounting for time. Pre-WHO GAP trials have had a decade or more to mature through the pipeline, meaning their 50% late-stage rate reflects years of natural progression. Post-WHO GAP trials have had considerably less time to advance yet already exceed that benchmark at 59.5%. This suggests that post-2015 AMR trials entered the pipeline at a more advanced stage of development, reflecting greater upfront investment and scientific readiness, a sign that the WHO GAP may have produced not just more research activity but more mature, better-resourced research programs from the jump.
+The post-WHO GAP cohort shows a higher proportion of late-stage trials (59.5%) than the pre-WHO GAP cohort (50.0%). This finding becomes significantly more compelling when accounting for time. Pre-WHO GAP trials have had a decade or more to mature through the pipeline, meaning their 50% late-stage rate reflects years of natural progression. Post-WHO GAP trials have had considerably less time to advance yet already exceed that benchmark at 59.5%. This suggests that post-2015 AMR trials entered the pipeline at a more advanced stage of development, reflecting greater upfront investment and scientific readiness, a sign that the WHO GAP may have produced not just more research activity but more mature, better-resourced research programs from the jump.
+
+### Completion Rates — A Note on Active Trials
+ 
+| Status | Pre-WHO GAP | Post-WHO GAP |
+|---|---|---|
+| Completed | 79.0% | 52.1% |
+| Active | 1.6% | 39.5% |
+| Terminated | 11.3% | 6.3% |
+| Withdrawn | 8.1% | 2.1% |
+ 
+The lower completion rate post-WHO GAP (52.1% vs 79.0%) is expected rather than alarming — 39.5% of post-2015 trials are still actively running. As these trials complete over the next 3-5 years, the completion rate will likely converge toward pre-2015 levels. The decline in termination (11.3% → 6.3%) and withdrawal (8.1% → 2.1%) rates is a positive signal suggesting better trial design and execution in the post-WHO GAP era.
+ 
+---
+
+### Summary of Key Findings
+ 
+| WHO GAP Pillar | Finding | Signal |
+|---|---|---|
+| Awareness & Knowledge | 236.6% increase in trial volume | ✅ Strong response |
+| Awareness & Knowledge | Pathogen diversity expanded from 6 to 9 groups | ✅ Moderate response |
+| Reduce Infection | Prevention trials grew from 0.9% to 5.1% | ⚠️ Partial response |
+| Optimize Use | CRE trials grew 17x; focus shifted to emerging threats | ✅ Strong response |
+| Sustainable Investment | Enrollment +72%, late-stage trials +9.5pp | ✅ Moderate response |
+| Sustainable Investment | Industry share declined from 38% to 35.6% | ❌ Gap remains |
+ 
+---
+ 
+*Data sourced from AACT static download (ClinicalTrials.gov). To reproduce this analysis, restore the AACT PostgreSQL dump locally following the instructions in `sql/setup.md`, then run notebooks in sequence: `01_eda.ipynb` → `02_cleaning.ipynb` → `03_analysis.ipynb`.*
 
